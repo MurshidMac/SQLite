@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SQLite Dreamcrud</string>
+    <string name="CustomerName">Name</string>
+    <string name="age">Age</string>
+    <string name="activeCustomer">Active Customer</string>
+    <string name="ViewAll">View All</string>
+    <string name="add">Add</string>
+</resources>
