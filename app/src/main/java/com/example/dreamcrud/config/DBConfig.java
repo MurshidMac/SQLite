@@ -93,4 +93,14 @@ public class DBConfig extends SQLiteOpenHelper {
         db.close();
         return list;
     }
+
+    public boolean delete(CustomerModel model){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String queryString = "DELETE FROM "+ table_name+ " WHERE "+ column_id+ " = " + model.getId();
+        Cursor cursor = db.rawQuery(queryString, null);
+        if(cursor.moveToFirst()){
+            return true;
+        }
+        return false;
+    }
 }

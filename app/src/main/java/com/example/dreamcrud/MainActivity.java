@@ -8,16 +8,19 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
-import android.widget.Toast;
 
 import com.example.dreamcrud.config.DBConfig;
 import com.example.dreamcrud.db.model.CustomerModel;
+
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnItemClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -77,4 +80,15 @@ public class MainActivity extends AppCompatActivity {
         customerListAdapter= new ArrayAdapter<CustomerModel>(this, android.R.layout.simple_list_item_1,customerModelList);
         lv_CustomerList.setAdapter(customerListAdapter);
     }
+
+    @OnItemClick(R.id.lv_customerList)
+    public void customerClicked(@NotNull android.widget.AdapterView<?>
+            parent, android.view.View view, int position, long id){
+            CustomerModel clickedmodel = (CustomerModel)parent.getItemAtPosition(position);
+            Log.i("CUSTOMER DELETED", clickedmodel.toString());
+            database.delete(clickedmodel);
+            initAdapter();
+    }
+
+
 }
