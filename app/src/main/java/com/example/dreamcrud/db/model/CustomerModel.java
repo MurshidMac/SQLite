@@ -1,6 +1,6 @@
 package com.example.dreamcrud.db.model;
 
-public class CustomerModel {
+public class CustomerModel  extends BaseModel{
     private int id;
     private String name;
     private int age;
